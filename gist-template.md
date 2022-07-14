@@ -33,13 +33,13 @@ The $ anchor tag sets our match to the end of the line.
 <pre>
 Here we have /^cat/      Here we have /cat$/      /^cat$/
 
-<mark style="background-color: #B0D0E9;">cat</mark>                      <mark  style="background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="background-color: rgb(176, 208, 233);">cat</mark>
+<mark style="background-color: #B0D0E9;"><em>cat</em></mark>                      <mark  style="background-color: rgb(176, 208, 233);"><em>cat</em></mark>                      <mark style="background-color: rgb(176, 208, 233);"><em>cat</em></mark>
 
-<mark style="background-color: rgb(176, 208, 233);">cat</mark>astrophe              catastrophe              catastrophe
+<mark style="background-color: rgb(176, 208, 233);"><em>cat</em></mark>astrophe              catastrophe              catastrophe
 
-wildcat                  wild<mark style="background-color: rgb(176, 208, 233);">cat</mark>                  wildcat
+wildcat                  wild<mark style="background-color: rgb(176, 208, 233);"><em>cat</em></mark>                  wildcat
 
-I love my cat            I love my <mark style="background-color: rgb(176, 208, 233);">cat</mark>            I love my cat
+I love my cat            I love my <mark style="background-color: rgb(176, 208, 233);"><em>cat</em></mark>            I love my cat
 
 ...
 </pre>
@@ -69,3 +69,26 @@ You can combine both ^ and $ to find a match that is only at the beginning and e
 ## Author
 
 A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+
+# hello world
+
+you can write text [with links](http://example.com) inline or [link references][1].
+
+* one _thing_ has *em*phasis
+* two __things__ are **bold**
+
+[1]: http://example.com
+
+---
+
+hello world
+===========
+
+<this_is inline="xml"></this_is>
+
+> markdown is so cool
+
+    so are code segments
+
+1. one thing (yeah!)
+2. two thing `i can write code`, and `more` wipee!
