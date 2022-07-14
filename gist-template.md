@@ -24,6 +24,28 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ### Anchors
 
+Anchors are the meta keytags ^ and $. They set a regex match to the beginning or end of the line of text.
+
+The ^ anchor tag sets our match to the beginning of the line.
+
+The $ anchor tag sets our match to the end of the line.
+
+<pre>
+Here we have /^cat/      Here we have /cat$/      /^cat$/
+
+<mark style="background-color: rgb(176, 208, 233);">cat</mark>                      <mark  style="background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="background-color: rgb(176, 208, 233);">cat</mark>
+
+<mark style="background-color: rgb(176, 208, 233);">cat</mark>astrophe              catastrophe              catastrophe
+
+wildcat                  wild<mark style="background-color: rgb(176, 208, 233);">cat</mark>                  wildcat
+
+I love my cat            I love my <mark style="background-color: rgb(176, 208, 233);">cat</mark>            I love my cat
+
+...
+</pre>
+
+You can combine both ^ and $ to find a match that is only at the beginning and end of the line. This will produce only the first string above.
+
 ### Quantifiers
 
 ### OR Operator
