@@ -33,7 +33,7 @@ The $ anchor tag sets our match to the end of the line.
 <pre>
 Here we have /^cat/      Here we have /cat$/      /^cat$/
 
-<mark style="background-color: rgb(176, 208, 233);">cat</mark>                      <mark  style="background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="background-color: rgb(176, 208, 233);">cat</mark>
+<mark style="background-color: #B0D0E9;">cat</mark>                      <mark  style="background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="background-color: rgb(176, 208, 233);">cat</mark>
 
 <mark style="background-color: rgb(176, 208, 233);">cat</mark>astrophe              catastrophe              catastrophe
 
