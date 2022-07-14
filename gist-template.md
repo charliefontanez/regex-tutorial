@@ -49,15 +49,30 @@ I love my cat            I love my <mark style="font-weight: bold; background-co
 
 ### Quantifiers
 
-Quantifiers allow us to specify a match of a certain amount of characters in our regular expression.
+Quantifiers allow us to specify a match of a certain amount of characters in sequence in our regular expression.
 
-<pre>x{n}</pre>  Finds a sequence of characters in our string of exactly n amount. Other characters of different amounts are ignored.
+`*` &ensp; &ensp; &ensp;Matches 0 or more times.
 
-`*` Matches 0 or more times. This one is a bit unusual.
+`+` &ensp; &ensp; &ensp;Matches 1 or more times.
+
+`?` &ensp; &ensp; &ensp;Matches 0 or 1 time.
+
+`{n}` &ensp; Matches n number of times
+
+<pre>/x{n}/</pre>
+
+Finds a sequence of characters in our string of exactly n amount. Other characters of different amounts are ignored.
+
 
 ### OR Operator
 
+`|` 
+
+The or operator is used to create an alternate keyword or character set to search for in a string of text. If we use `/cat|love/` in our regular expression, this would find all matching instances of cat and love in our string.
+
 ### Character Classes
+
+
 
 ### Flags
 
