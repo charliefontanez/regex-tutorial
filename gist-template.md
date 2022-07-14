@@ -24,11 +24,13 @@ Briefly summarize the regex you will be describing and what you will explain. In
 
 ### Anchors
 
-Anchors are the meta keytags ^ and $. They set a regex match to the beginning or end of the line of text.
+Anchors are the meta keytags ^ and $. They set a regex match to the beginning or end of the line of text. Anchors are unique in that they don't specify the character itself but rather the location in where to find the match.
 
 The ^ anchor tag sets our match to the beginning of the line.
 
 The $ anchor tag sets our match to the end of the line.
+
+Combining both ^ and $ will find the match that is only at the beginning and end of the line.
 
 <pre>
 Here we have /^cat/      Here we have /cat$/      /^cat$/
@@ -44,9 +46,14 @@ I love my cat            I love my <mark style="font-weight: bold; background-co
 ...
 </pre>
 
-You can combine both ^ and $ to find a match that is only at the beginning and end of the line. This will produce only the first string above.
 
 ### Quantifiers
+
+Quantifiers allow us to specify a match of a certain amount of characters in our regular expression.
+
+<pre>x{n}</pre>  Finds a sequence of characters in our string of exactly n amount. Other characters of different amounts are ignored.
+
+`*` Matches 0 or more times. This one is a bit unusual.
 
 ### OR Operator
 
