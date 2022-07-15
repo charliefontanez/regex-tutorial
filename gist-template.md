@@ -1,4 +1,4 @@
-# Title (replace with your title)
+# Regular Expression Tutorial
 
 Introductory paragraph (replace this with your text)
 
@@ -66,12 +66,40 @@ Finds a sequence of characters in our string of exactly n amount. Other characte
 
 ### OR Operator
 
+The OR operator is used to create an alternate keyword or character set to search for in a string of text. If we use `/cat|love/` in our regular expression, this would find all matching instances of cat and love in our string.
+
 `|` 
 
-The or operator is used to create an alternate keyword or character set to search for in a string of text. If we use `/cat|love/` in our regular expression, this would find all matching instances of cat and love in our string.
 
 ### Character Classes
 
+Character classes are used to match a specific class of character in a string. Some character classes are:
+
+
+`.` &ensp; &ensp; &ensp;Matches any character
+
+`\w` &ensp; &ensp; Matches a word character (alphanumeric character plus underscore)
+
+`\s` &ensp; &ensp; Matches a whitespace character (includes tabs and line breaks)
+
+`\d` &ensp; &ensp; Matches a single character that is a digit
+
+In order for some character classes to be taken literally they must be escaped with a `\` as they have a special meaning. For example, the character class `$` needs to be escaped like `\$` because the `$` character represents an anchor tag. `^.[$()|*+?{\` characters need to be escaped.
+
+<pre>\$\d   Matches a string that has a <strong>$ before one digit</atrong></pre>
+
+
+
+Character classes have inverse patterns as well, such as `\D`, `\S`, `\W` which are the character class negations.
+
+`\D` &ensp; &ensp; Matches a single non-digit character
+
+`\S` &ensp; &ensp; Matches a non-whitespace character
+
+`\W` &ensp; &ensp; Matches a non  word character
+
+
+You can also match non-printable characters like tabs `\t`, newlines `\n` or carriage returns `\r`.
 
 
 ### Flags
@@ -79,6 +107,25 @@ The or operator is used to create an alternate keyword or character set to searc
 ### Grouping and Capturing
 
 ### Bracket Expressions
+
+Bracket expressions are a special kind of character classes. Bracket expressions match one character out of a set of characters.
+
+Bracket expressions are a list of characters or character classes enclosed in brackets. They are used to match single characters or a range of characters in a list
+
+<pre>/[a-zA-Z]/   a through z and A through Z</pre>
+
+If the first character of the list is a carat ^ then it matches characters that are not in the list.
+
+<pre>/[^a-z]/    any character except a through z</pre>
+
+Character classes can also be used to select characters in a bracket expression according to the CisXXX library functions.
+
+<pre>
+[[:alpha:]]   All Alphabetic characters (function isAlpha())
+
+[[:digit:]]   All Digits (function isDigit())
+
+[[:space:]]   All whitespace characters (function isSpace())</pre>
 
 ### Greedy and Lazy Match
 
