@@ -84,9 +84,11 @@ Character classes are used to match a specific class of character in a string. S
 
 `\d` &ensp; &ensp; Matches a single character that is a digit
 
-In order for some character classes to be taken literally they must be escaped with a `\` as they have a special meaning. For example, the character class `$` needs to be escaped like `\$` because the `$` character represents an anchor tag. `^.[$()|*+?{\` characters need to be escaped.
+In order for some character classes to be taken literally they must be escaped with a `\` as they have a special meaning. The character class `$`, for example, needs to be escaped with a `\` like `\$` because the `$` character also represents an anchor tag. All `^.[$()|*+?{\` characters need to be escaped.
 
-<pre>\$\d   Matches a string that has a <strong>$ before one digit</atrong></pre>
+<pre>\$\d   Matches a string that has a <strong>$ before one digit</strong></pre>
+
+Without the escape before the `$` above, the regular expression would be read as an invalid expression with the `$` anchor tag being on the wrong side of the `\d` character class.
 
 
 
@@ -99,7 +101,7 @@ Character classes have inverse patterns as well, such as `\D`, `\S`, `\W` which 
 `\W` &ensp; &ensp; Matches a non  word character
 
 
-You can also match non-printable characters like tabs `\t`, newlines `\n` or carriage returns `\r`.
+You can also match non-printable characters like tabs `\t`, newlines `\n`, carriage returns `\r`.
 
 
 ### Flags
@@ -118,7 +120,7 @@ If the first character of the list is a carat ^ then it matches characters that 
 
 <pre>/[^a-z]/    any character except a through z</pre>
 
-Character classes can also be used to select characters in a bracket expression according to the CisXXX library functions.
+Character classes can also be used to select characters in a bracket expression according to the CisXXX library functions. This feature may not work in non C based environments such as a javascript environment.
 
 <pre>
 [[:alpha:]]   All Alphabetic characters (function isAlpha())
