@@ -1,10 +1,12 @@
 # Regex Tutorial
 
-Introductory paragraph (replace this with your text)
+This is a tutorial providing a breif explaination of different regex components.
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+This is a regex for finding a hex code. `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`
+
+In this tutorial we are going to breakdown the different components that make up this regular expression and how they work.
 
 ## Table of Contents
 
@@ -25,6 +27,10 @@ Briefly summarize the regex you will be describing and what you will explain. In
 ### Anchors
 
 Anchors are the meta keytags ^ and $. They set a regex match to the beginning or end of the line of text. Anchors are unique in that they don't specify the character itself but rather the location in where to find the match.
+
+
+In our case `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/` the ^ caret specifies we are looking for a string that only starts with a hex symbol or the `#` character class.
+
 
 The ^ anchor tag sets our match to the beginning of the line.
 
@@ -75,6 +81,9 @@ The OR operator is used to create an alternate keyword or character set to searc
 a[bc]   same as previous</pre>
 
 
+<pre>( [a-f0-9]{6} | [a-f0-9]{3} )   Looks for any string containing characters in the range a-f0-9 {6} times  <strong>or</strong>  a-f0-9 {3} times</pre>
+
+
 ### Character Classes
 
 Character classes are used to match a specific class of character in a string. Some character classes are:
@@ -122,7 +131,7 @@ Flags are modifiers that change how our expression is interpreted.
 
 ### Grouping and Capturing
 
-`( )` Groups allow us to create a capture group with the specified characters and extract them. The captured values can be reused and accessed like an array.
+`( )` Groups allow us to create a capture group with the specified characters and extract them. The captured values can be reused and accessed later on like an array.
 
 ### Bracket Expressions
 
@@ -147,7 +156,7 @@ Character classes can also be used to select characters in a bracket expression 
 
 ### Greedy and Lazy Match
 
-Quantifiers &ensp;`*` &ensp;`+` &ensp;`{}` &ensp; are naturally greedy operators. They expand the match as far as they can through a provided text.
+Quantifiers &ensp;`*` &ensp;`+` &ensp;`?` &ensp;`{}` &ensp; are naturally greedy operators. They expand the match as far as they can through a provided text.
 
 In order to make the match lazy we can add a `?` to make the match lazy.
 
@@ -155,7 +164,15 @@ In order to make the match lazy we can add a `?` to make the match lazy.
 
 `+?`
 
+`??`
+
 `{ }?`
+
+Our regex for hex code `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/` actually makes use of a greedy operator. 
+
+`/#?` &ensp; &ensp; &ensp; In this case I have removed the caret ^ to better isolate what the match is doing.
+
+This snippet of our regex code specifies we want to find the `#` character as many times as possible until we get an eligible match. If we wanted to use a lazy match we would include `/#??`. This would specify to stop looking for the match after the first instance we come across a `#` character in our string.
 
 ### Boundaries
 
@@ -175,9 +192,12 @@ Uses the values from a matched catpured group.
 
 `(?=)` and `(?<=)`
 
+Our expression for finding a hex code doesn't make use of look-ahead and look-behind, boundaries, and back-references but it is good to understand its use.
+
 Look ahead and look behind are similar to character class expressions. The main difference between the two is the look ahead and look behind values are not returned in the overall match.
 
 `/ab/`  Basic expression that finds all instances of an a character followed by a b character.
+
 
 #### Look-ahead
 
@@ -189,27 +209,4 @@ Look ahead and look behind are similar to character class expressions. The main 
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
-
-<!-- # hello world
-
-you can write text [with links](http://example.com) inline or [link references][1].
-
-* one _thing_ has *em*phasis
-* two __things__ are **bold**
-
-[1]: http://example.com
-
----
-
-hello world
-===========
-
-<this_is inline="xml"></this_is>
-
-> markdown is so cool
-
-    so are code segments
-
-1. one thing (yeah!)
-2. two thing `i can write code`, and `more` wipee! -->
+Created by Carlos Fontanez. Find me at my Github at [https://github.com/charliefontanez](https://github.com/charliefontanez)
