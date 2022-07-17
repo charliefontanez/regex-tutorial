@@ -1,4 +1,4 @@
-# Regular Expression Tutorial
+# Regex Tutorial
 
 Introductory paragraph (replace this with your text)
 
@@ -35,7 +35,7 @@ Combining both ^ and $ will find the match that is only at the beginning and end
 <pre>
 Here we have /^cat/      Here we have /cat$/      /^cat$/
 
-<mark class="match">cat</mark>                      <mark  style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>
+<mark style="font-weight: bold; background-color: #B0D0E9;">cat</mark>                      <mark  style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>
 
 <mark style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>astrophe              catastrophe              catastrophe
 
@@ -122,6 +122,8 @@ Flags are modifiers that change how our expression is interpreted.
 
 ### Grouping and Capturing
 
+`( )` Groups allow us to create a capture group with the specified characters and extract them. The captured values can be reused and accessed like an array.
+
 ### Bracket Expressions
 
 Bracket expressions are a special kind of character classes. Bracket expressions match one character out of a set of characters.
@@ -130,11 +132,11 @@ Bracket expressions are a list of characters or character classes enclosed in br
 
 <pre>/[a-zA-Z]/   a through z and A through Z</pre>
 
-If the first character of the list is a carat ^ then it matches characters that are not in the list.
+If the first character of the list is a carat ^ then the expression matches characters the that are not in the list.
 
 <pre>/[^a-z]/    any character except a through z</pre>
 
-Character classes can also be used to select characters in a bracket expression according to the CisXXX library functions. This feature may not work in non C based environments such as a javascript environment.
+Character classes can also be used to select characters in a bracket expression according to the CisXXX library functions. This feature may not work in non C based environments such as a javascript.
 
 <pre>
 [[:alpha:]]   All Alphabetic characters (function isAlpha())
@@ -145,17 +147,51 @@ Character classes can also be used to select characters in a bracket expression 
 
 ### Greedy and Lazy Match
 
+Quantifiers &ensp;`*` &ensp;`+` &ensp;`{}` &ensp; are naturally greedy operators. They expand the match as far as they can through a provided text.
+
+In order to make the match lazy we can add a `?` to make the match lazy.
+
+`*?`
+
+`+?`
+
+`{ }?`
+
 ### Boundaries
+
+`\b` and `\B` represents an anchor like a caret. Boundaries specify the ends of a word in a string.
+
+`\b` &ensp; Matches the postiion where one side is a word character and the other side is a non word character. In other words, mathces where the boundaries of a word are.
+
+`\B` &ensp; The negation matches all the positions where `\b` does not match. Can be used to find a search pattern fully surrounded by word characters.
 
 ### Back-references
 
+Uses the values from a matched catpured group. 
+
+`a([bc])\1` &ensp; Back references the same text that was matched from the first capture group.
+
 ### Look-ahead and Look-behind
+
+`(?=)` and `(?<=)`
+
+Look ahead and look behind are similar to character class expressions. The main difference between the two is the look ahead and look behind values are not returned in the overall match.
+
+`/ab/`  Basic expression that finds all instances of an a character followed by a b character.
+
+#### Look-ahead
+
+<pre>/a(?=b)/  Look-ahead finds all instances of <strong>a</strong> followed by <strong>b</strong> but only returns the a character in the match</pre>
+
+#### Look-behind
+
+<pre>/a(?<=b)/ Look-behind finds all instances of <strong>a</strong> with a <strong>b</strong> before it but only returns the a character in the match</pre>
 
 ## Author
 
 A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
 
-# hello world
+<!-- # hello world
 
 you can write text [with links](http://example.com) inline or [link references][1].
 
@@ -176,11 +212,4 @@ hello world
     so are code segments
 
 1. one thing (yeah!)
-2. two thing `i can write code`, and `more` wipee!
-
-
-<style>
-  .match {
-    background-color: #B0D0E9;
-  }
-</style>
+2. two thing `i can write code`, and `more` wipee! -->
