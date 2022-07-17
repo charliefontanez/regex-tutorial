@@ -1,6 +1,6 @@
 # Regex Tutorial
 
-This is a tutorial providing a breif explaination of different regex components.
+This is a tutorial providing a brief explaination of different regex components.
 
 ## Summary
 
