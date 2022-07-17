@@ -35,7 +35,7 @@ Combining both ^ and $ will find the match that is only at the beginning and end
 <pre>
 Here we have /^cat/      Here we have /cat$/      /^cat$/
 
-<mark style="font-weight: bold; background-color: #B0D0E9;">cat</mark>                      <mark  style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>
+<mark class="match">cat</mark>                      <mark  style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>                      <mark style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>
 
 <mark style="font-weight: bold; background-color: rgb(176, 208, 233);">cat</mark>astrophe              catastrophe              catastrophe
 
@@ -70,6 +70,10 @@ The OR operator is used to create an alternate keyword or character set to searc
 
 `|` 
 
+<pre>a(b|c)  matches a string that has <strong> a  followed by  b or c</strong>
+
+a[bc]   same as previous</pre>
+
 
 ### Character Classes
 
@@ -86,7 +90,9 @@ Character classes are used to match a specific class of character in a string. S
 
 In order for some character classes to be taken literally they must be escaped with a `\` as they have a special meaning. The character class `$`, for example, needs to be escaped with a `\` like `\$` because the `$` character also represents an anchor tag. All `^.[$()|*+?{\` characters need to be escaped.
 
-<pre>\$\d   Matches a string that has a <strong>$ before one digit</strong></pre>
+<pre>\$\d   Matches a string that has a <strong>$ before one digit</strong>    <span>$2</span>
+
+\$\d\d\.\d\d  Matches a string that has <strong>$ before two digits</strong> followed by a <strong>. and two more digits</strong>    <span>$20.00</span></pre>
 
 Without the escape before the `$` above, the regular expression would be read as an invalid expression with the `$` anchor tag being on the wrong side of the `\d` character class.
 
@@ -105,6 +111,14 @@ You can also match non-printable characters like tabs `\t`, newlines `\n`, carri
 
 
 ### Flags
+
+Flags are modifiers that change how our expression is interpreted.
+
+`g` &ensp; Global flag &ensp; &ensp; Does not return after the first match. Restarts for subsequent searches after each match
+
+`m` &ensp; Multi-line &ensp; &ensp; When enabled ^ and $ will start at the end of a line instead of the whole string.
+
+`i` &ensp; case-insensitive &ensp; &ensp; Makes the whole expression case insensitive.
 
 ### Grouping and Capturing
 
@@ -163,3 +177,10 @@ hello world
 
 1. one thing (yeah!)
 2. two thing `i can write code`, and `more` wipee!
+
+
+<style>
+  .match {
+    background-color: #B0D0E9;
+  }
+</style>
